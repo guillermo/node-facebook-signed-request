@@ -2,12 +2,6 @@
 
 node.js port of [facebook-signeded-request](https://github.com/wooga/facebook-signed-request)
 
-## Considerdations
-
-The API is still pretty alpha and will probably change with the next release since the Ruby implementation 
-is not a really good fit for JavaScript. Especially the exception throwing part. This might be a good idea for Ruby but not for node.js, since this can
-kill the whole node process.
-
 ## Installation
 
 clone this repository and then
@@ -24,3 +18,9 @@ clone this repository and then
 
 	npm install jasmine-node
 	jasmine-node spec
+
+## Considerdations
+
+The API is still pretty alpha and will probably change with the next release since the Ruby implementation is not a really good fit for JavaScript. Especially the exception throwing part. This might be a good idea for Ruby but not for node.js, since this can kill the whole node process. Furthermore, there is an issue with node.js crypto.digest not being able to return encodings other than binary, hex or base64. This requires to decode the base64 again and compare with facebook's signature. At least that is how facebook does it in their reference implementation. On could try to not decode their signature and compare it directly with the output of crypto.digest.
+
+
