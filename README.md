@@ -1,6 +1,7 @@
 # facebook signed request for node.js
 
-node.js port of [facebook-signeded-request](https://github.com/wooga/facebook-signed-request)
+node.js port of [facebook-signeded-request](https://github.com/wooga/facebook-signed-request).
+It implements the [signed request](http://developers.facebook.com/docs/authentication/signed_request/) sent by facebook to applications.
 
 ## Installation
 
