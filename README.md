@@ -23,6 +23,15 @@ clone this repository and then
 	  console.log(request.data);
 	});
 
+You can also sign requests to be used in your tests
+
+	SignedRequest.secret = "897z956a2z7zzzzz5783z458zz3z7556";
+ 	SignedRequest.encodeAndSign({ user_id : '111111'})
+
+which will output something in the format of
+
+	gI7hojzSUZyrEP6/kh7TRCI6PZ6VucX0bvbcKxj10HY.eyJ1c2VyX2lkIjoiMTExMTExMSJ9
+
 ## Data sent by facebook
 
 Here is an example
