@@ -60,14 +60,26 @@ describe('parse signed requests', function(){
   });
 
   it('provides access to the parsed payload data', function(){
-    new SignedRequest( validRequest , { strict : true } ).parse(function(errors, request){
+    new SignedRequest( validRequest ).parse(function(errors, request){
       expect(request.data).toBeDefined();
     });
   });
 
   it('provides access to the parsed payload data', function(){
-    new SignedRequest( validRequest , { strict : true } ).parse(function(errors, request){
+    new SignedRequest( validRequest ).parse(function(errors, request){
       expect(request.data.user_id).toEqual('111111111111111');
+    });
+  });
+});
+
+describe('generating signed requests', function(){
+  it('encodes and signs request params', function(){
+    SignedRequest.secret = "897z956a2z7zzzzz5783z458zz3z7556";
+    var request1 = null;
+    new SignedRequest( validRequest ).parse(function(errors, request){
+      request1 = request;
+      var reencodedRequest = SignedRequest.encodeAndSign(request1.data);
+      expect(validRequest).toEqual(reencodedRequest);
     });
   });
 });
