@@ -70,6 +70,13 @@ describe('parse signed requests', function(){
       expect(request.data.user_id).toEqual('111111111111111');
     });
   });
+
+  it('works with minus and plus signs the signature', function(){
+    var request = new SignedRequest( "a.aaaa" );
+    request.computeSignature(function(){
+      expect(request.computedSignature).toEqual('q7xdJqF0bBk5VILcb1ITzSJXyR_AIcVvcAE28139-sw');
+    });
+  });
 });
 
 describe('generating signed requests', function(){
@@ -83,4 +90,3 @@ describe('generating signed requests', function(){
     });
   });
 });
-
